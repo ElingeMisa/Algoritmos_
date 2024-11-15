@@ -58,11 +58,61 @@ def yellow_path(pygame, screen, path_tile, path, step):
 		
 		screen.blit(path_tile, (i*tile_size, j*tile_size) )
 
+def manhattan(a, b):
+        # Heurística Manhattan
+        return abs(a[0] - b[0]) + abs(a[1] - b[1])
 
-# Aqui va tu codigo para encontrar el camino con a*
-#def aStar( ): 
+def aStar(mapa, pos_ini, pos_fin, rows, cols):
+	# Cola de prioridad para los nodos abiertos
+    open_set = queue.PriorityQueue()
+    open_set.put((0, pos_ini))  # (f_score, nodo)
+    
+    # Diccionario para reconstruir el camino
+    came_from = {}
+    
+    # Inicializar puntuaciones
+    g_score = { (x, y): float('inf') for x in range(rows) for y in range(cols) }
+    g_score[pos_ini] = 0
 
+    f_score = { (x, y): float('inf') for x in range(rows) for y in range(cols) }
+    f_score[pos_ini] = manhattan(pos_ini, pos_fin)
 
+    while not open_set.empty():
+        # Obtener nodo con menor f_score
+        _, current = open_set.get()
+        
+        # Si alcanzamos el destino, reconstruimos el camino
+        if current == pos_fin:
+            path = []
+            while current in came_from:
+                path.append(current)
+                current = came_from[current]
+            path.append(pos_ini)
+            return path[::-1]  # Invertir el camino
+        
+        # Explorar vecinos
+        for i, j in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
+            vecino = (current[0] + i, current[1] + j)
+            
+            # Verificar que el vecino esté dentro del mapa
+            if vecino[0] < 0 or vecino[0] >= rows or vecino[1] < 0 or vecino[1] >= cols:
+                continue
+            
+            # Verificar que el vecino no sea un obstáculo
+            if mapa[vecino[0]][vecino[1]] == 0:
+                continue
+
+            # Calcular coste tentativo
+            tentative_g_score = g_score[current] + 1
+
+            # Si encontramos un mejor camino hacia el vecino
+            if tentative_g_score < g_score[vecino]:
+                came_from[vecino] = current
+                g_score[vecino] = tentative_g_score
+                f_score[vecino] = g_score[vecino] + manhattan(vecino, pos_fin)
+                open_set.put((f_score[vecino], vecino))
+    return [pos_ini]
+	
 
 
 def main1():
@@ -70,10 +120,10 @@ def main1():
 	tile_size = 40						# Tamaño de celdas
 
 	pos_init = (9,1)
-	pos_target = (7,3)
+	pos_target = (3,15)
 	
-	
-	map_cells = loadMap('/Users/misa_v/Library/CloudStorage/OneDrive-InstitutoTecnologicoydeEstudiosSuperioresdeMonterrey/Sem 5/Algoritmos_/Scripts/Python/Laberinto/map2.txt') #	Get map from file, as a numpy array
+	prefix = "/Users/misa_v/Library/CloudStorage/OneDrive-InstitutoTecnologicoydeEstudiosSuperioresdeMonterrey/Sem 5/Algoritmos_/Scripts/Python/Laberinto/"
+	map_cells = loadMap(prefix + "map2.txt") #	Get map from file, as a numpy array
 	
 	map_cells[pos_init] = '1'			# Initial position 
 	map_cells[pos_target] = '10'		# Target position	
@@ -82,8 +132,8 @@ def main1():
 	cols = map_cells.shape[1]			#	Number of cols
 
 	#	Cambia por la llamada a tu funcion que encuentra el path usando a*
-	# path = aStar(map_cells, pos_init, pos_target, rows, cols)            	
 	path  = [(9, 1), (9, 2), (9, 3), (9, 4), (9, 5), (8, 5), (7, 5), (6, 5), (5, 5), (5, 4), (5, 3), (6, 3), (7, 3)]
+	path = aStar(map_cells, pos_init, pos_target, rows, cols)            	
 
 	print(map_cells, '\n' )
 	print('Steps : ', len(path)-1, '\n', path, '\n')
@@ -98,10 +148,10 @@ def main1():
 	font = pygame.font.SysFont('arial.ttf', 20)
 
 	#	Carga las imagenes de tiles y las escala
-	img1 = pygame.image.load("/Users/misa_v/Library/CloudStorage/OneDrive-InstitutoTecnologicoydeEstudiosSuperioresdeMonterrey/Sem 5/Algoritmos_/Scripts/Python/Laberinto/tile1.png")
-	img2 = pygame.image.load("/Users/misa_v/Library/CloudStorage/OneDrive-InstitutoTecnologicoydeEstudiosSuperioresdeMonterrey/Sem 5/Algoritmos_/Scripts/Python/Laberinto/tile2.png")
-	img3 = pygame.image.load("/Users/misa_v/Library/CloudStorage/OneDrive-InstitutoTecnologicoydeEstudiosSuperioresdeMonterrey/Sem 5/Algoritmos_/Scripts/Python/Laberinto/skull.png")
-	img4 = pygame.image.load("/Users/misa_v/Library/CloudStorage/OneDrive-InstitutoTecnologicoydeEstudiosSuperioresdeMonterrey/Sem 5/Algoritmos_/Scripts/Python/Laberinto/treasure.png")
+	img1 = pygame.image.load(prefix + "tile1.png")
+	img2 = pygame.image.load(prefix + "tile2.png")
+	img3 = pygame.image.load(prefix + "skull.png")
+	img4 = pygame.image.load(prefix + "treasure.png")
 	tile_green = pygame.transform.scale(img1, (tile_size, tile_size))
 	tile_grey = pygame.transform.scale(img2, (tile_size, tile_size))
 	skull = pygame.transform.scale(img3, (tile_size, tile_size))		# imagen skull 
