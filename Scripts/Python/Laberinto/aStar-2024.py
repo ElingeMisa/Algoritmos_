@@ -63,14 +63,12 @@ def manhattan(a, b):
         return abs(a[0] - b[0]) + abs(a[1] - b[1])
 
 def aStar(mapa, pos_ini, pos_fin, rows, cols):
-	# Cola de prioridad para los nodos abiertos
+	
     open_set = queue.PriorityQueue()
     open_set.put((0, pos_ini))  # (f_score, nodo)
-    
-    # Diccionario para reconstruir el camino
     came_from = {}
     
-    # Inicializar puntuaciones
+    # puntuaciones
     g_score = { (x, y): float('inf') for x in range(rows) for y in range(cols) }
     g_score[pos_ini] = 0
 
@@ -78,17 +76,16 @@ def aStar(mapa, pos_ini, pos_fin, rows, cols):
     f_score[pos_ini] = manhattan(pos_ini, pos_fin)
 
     while not open_set.empty():
-        # Obtener nodo con menor f_score
         _, current = open_set.get()
         
-        # Si alcanzamos el destino, reconstruimos el camino
+        # Si llegamos al nodo objetivo
         if current == pos_fin:
             path = []
             while current in came_from:
                 path.append(current)
                 current = came_from[current]
             path.append(pos_ini)
-            return path[::-1]  # Invertir el camino
+            return path[::-1]  
         
         # Explorar vecinos
         for i, j in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
