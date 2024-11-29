@@ -1,0 +1,51 @@
+Distancia en tubería entre 2 y 3 : 230.23466289853056
+Distancia en tubería entre 3 y 4 : 248.64633518312712
+Distancia en tubería entre 4 y 5 : 207.03864373589778
+Distancia en tubería entre 5 y 6 : 211.6057655169159
+Distancia en tubería entre 6 y 7 : 187.3846311734236
+Distancia en tubería entre 7 y 8 : 187.94946129212502
+Distancia en tubería entre 8 y 9 : 185.42114226808118
+Distancia en tubería entre 9 y 10 : 182.21415971323415
+Distancia en tubería entre 11 y 9 : 275.13632984395207
+Distancia en tubería entre 12 y 11 : 236.5417510715603
+Distancia en tubería entre 13 y 12 : 213.41274563624359
+Distancia en tubería entre 14 y 13 : 351.4342043683284
+Distancia en tubería entre 15 y 14 : 281.1138559374119
+Distancia en tubería entre 1 y 15 : 322.33212685055145
+Distancia en tubería entre 10 y 17 : 473.07081922266144
+Distancia en tubería entre 12 y 18 : 362.0220987729893
+Distancia en tubería entre 18 y 19 : 309.64657272445305
+Distancia en tubería entre 11 y 20 : 386.58763560155415
+Distancia en tubería entre 20 y 16 : 426.4141179651537
+Distancia en tubería entre 9 y 16 : 480.8378104933097
+Distancia en tubería entre 20 y 13 : 0
+Distancia en tubería entre 21 y 19 : 0
+Distancia en tubería entre 22 y 20 : 0
+Sectorización de la topología:
+
+	Sector asociado a la fuente 19: Nodos -> [2, 3, 4, 5, 6, 11, 12, 13, 14, 15, 18, 19, 20, 1, 21, 22]
+	Sector asociado a la fuente 17: Nodos -> [7, 8, 9, 10, 16, 17]
+
+Tuberías a cerrar:
+
+	Tubería entre 6 y 7 con capacidad de 181.0
+	Tubería entre 11 y 9 con capacidad de 205.0
+	Tubería entre 20 y 16 con capacidad de 63.0
+
+Nodos más lejanos de cada sector:
+
+Sector (nodo fuente): 19, Fuente: 19, Nodo más lejano: 21, Distancia: 5264.35
+Posicion: (6478.0, 3050.0)
+Flujo máximo de este sector: Flujo máximo: 0.00
+Sector (nodo fuente): 17, Fuente: 17, Nodo más lejano: 7, Distancia: 900.64
+Posicion: (455.0, 1395.0)
+Flujo máximo de este sector: Flujo máximo: 0.00
+
+Flujo máximo de cada sector:
+
+Sector (nodo fuente): 19 a (nodo mas lejano) 21, Flujo máximo: 1.00
+Sector (nodo fuente): 17 a (nodo mas lejano) 7, Flujo máximo: 1.00
+
+Muestra de agua:
+Distancia Total: 9783.23884834928
+Camino: 5, 4, 3, 2, 3, 4, 5, 6, 7, 8, 9, 10, 17, 10, 9, 11, 12, 13, 20, 22, 20, 16, 20, 13, 14, 15, 1, 15, 14, 13, 12, 18, 19, 21, 19, 18, 12, 11, 9, 8, 7, 6, 5, 5

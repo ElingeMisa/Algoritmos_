@@ -1,0 +1,65 @@
+Distancia en tubería entre 2 y 3 : 1003.2579740525365
+Distancia en tubería entre 3 y 4 : 849.0248846765334
+Distancia en tubería entre 4 y 5 : 998.8899999999994
+Distancia en tubería entre 5 y 6 : 1230.403370606567
+Distancia en tubería entre 6 y 7 : 649.25
+Distancia en tubería entre 7 y 8 : 944.6152521529596
+Distancia en tubería entre 8 y 9 : 954.5
+Distancia en tubería entre 9 y 10 : 788.0199999999995
+Distancia en tubería entre 10 y 11 : 697.8712108261809
+Distancia en tubería entre 11 y 12 : 839.54
+Distancia en tubería entre 12 y 13 : 1683.187575673014
+Distancia en tubería entre 10 y 14 : 788.0100000000002
+Distancia en tubería entre 14 y 15 : 854.6099999999997
+Distancia en tubería entre 15 y 16 : 654.8200000000006
+Distancia en tubería entre 17 y 16 : 721.4200000000001
+Distancia en tubería entre 18 y 17 : 543.8399999999997
+Distancia en tubería entre 19 y 18 : 677.0300000000002
+Distancia en tubería entre 3 y 19 : 606.0831996516647
+Distancia en tubería entre 3 y 20 : 1437.3328853470234
+Distancia en tubería entre 20 y 21 : 1287.4600000000003
+Distancia en tubería entre 21 y 22 : 399.54999999999995
+Distancia en tubería entre 20 y 23 : 1609.32
+Distancia en tubería entre 23 y 24 : 1496.0529480603282
+Distancia en tubería entre 24 y 25 : 1053.2913048155294
+Distancia en tubería entre 26 y 25 : 1097.0
+Distancia en tubería entre 27 y 26 : 856.0686573517336
+Distancia en tubería entre 16 y 27 : 1087.6799999999998
+Distancia en tubería entre 23 y 28 : 1132.510004414972
+Distancia en tubería entre 28 y 29 : 1398.4499999999998
+Distancia en tubería entre 29 y 30 : 1780.8600002526873
+Distancia en tubería entre 30 y 31 : 768.5759333338506
+Distancia en tubería entre 32 y 31 : 1085.81
+Distancia en tubería entre 25 y 32 : 1444.01
+Distancia en tubería entre 32 y 9 : 0
+Distancia en tubería entre 33 y 5 : 0
+Distancia en tubería entre 34 y 32 : 0
+Sectorización de la topología:
+
+	Sector asociado a la fuente 1: Nodos -> [2, 3, 4, 5, 6, 7, 18, 19, 20, 21, 22, 23, 24, 28, 29, 1, 33]
+	Sector asociado a la fuente 13: Nodos -> [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 25, 26, 27, 30, 31, 32, 34]
+
+Tuberías a cerrar:
+
+	Tubería entre 7 y 8 con capacidad de 18.0
+	Tubería entre 18 y 17 con capacidad de 16.0
+	Tubería entre 24 y 25 con capacidad de 16.0
+	Tubería entre 29 y 30 con capacidad de 18.0
+
+Nodos más lejanos de cada sector:
+
+Sector (nodo fuente): 1, Fuente: 1, Nodo más lejano: 29, Distancia: 6040.54
+Posicion: (-552.41, 2588.2)
+Flujo máximo de este sector: Flujo máximo: 0.00
+Sector (nodo fuente): 13, Fuente: 13, Nodo más lejano: 30, Distancia: 6605.19
+Posicion: (-552.38, 4369.06)
+Flujo máximo de este sector: Flujo máximo: 0.00
+
+Flujo máximo de cada sector:
+
+Sector (nodo fuente): 1 a (nodo mas lejano) 29, Flujo máximo: 1.00
+Sector (nodo fuente): 13 a (nodo mas lejano) 30, Flujo máximo: 1.00
+
+Muestra de agua:
+Distancia Total: 55725.470401925784
+Camino: 29, 28, 23, 24, 25, 26, 27, 16, 15, 14, 10, 11, 12, 13, 12, 11, 10, 9, 32, 34, 32, 31, 30, 31, 32, 9, 8, 7, 6, 5, 33, 5, 4, 3, 19, 18, 17, 18, 19, 3, 2, 3, 20, 21, 22, 21, 20, 3, 4, 5, 6, 7, 8, 9, 10, 14, 15, 16, 27, 26, 25, 24, 23, 28, 29, 29
